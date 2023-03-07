@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             if(higestConfidenceValue>=0.6000000) {
                 if(indexOfFirstConfidence==0)
                 {
-                    s = "This image appears to be a drawing";
+                    s = "This image appears to be a drawing...";
                 }
                 else if (indexOfFirstConfidence==1)
                 {
