@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (indexOfFirstConfidence==1)
                 {
-                    s = "Baka!! Hentai!!";
+                    s = "Baka !! Hentai !!";
                 }
                 else if (indexOfFirstConfidence==2)
                 {
