@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NSFW Detector Demo 3</string>
+    <string name="DetectedNormal">This appears to be a normal image</string>
+    <string name="NewImageAdder">Import new image :</string>
+    <string name="GalleryButton">Gallery</string>
+    <string name="CameraButton">Camera</string>
+    <string name="ImageDescription">ImageUsed</string>
 </resources>

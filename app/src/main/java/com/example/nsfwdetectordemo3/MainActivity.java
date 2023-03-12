@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
             Arrays.sort(confidences);
 
             //find highest confidence
-            float higestConfidenceValue = confidences[4];
+            float highestConfidenceValue = confidences[4];
             int indexOfFirstConfidence=0;
             for(int i=0;i<=4;i++)
             {
-                if(originalconfidence[i]==higestConfidenceValue)
+                if(originalconfidence[i]==highestConfidenceValue)
                 {
                     indexOfFirstConfidence=i;
                     break;
@@ -114,11 +114,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             //find 2nd highest confidence
-            float secondHigestConfidenceValue = confidences[3];
+            float secondHighestConfidenceValue = confidences[3];
             int indexOfSecondConfidence=0;
             for(int i=0;i<=4;i++)
             {
-                if(originalconfidence[i]==secondHigestConfidenceValue)
+                if(originalconfidence[i]==secondHighestConfidenceValue)
                 {
                     indexOfSecondConfidence=i;
                     break;
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             s2="Drawing "+originalconfidence[0]+ "\n" + "Hentai "+originalconfidence[1]+ "\n" + "Normal "+originalconfidence[2]+ "\n" + "Porn "+originalconfidence[3]+ "\n" + "Sexy "+originalconfidence[4];
 
             //print the highest confidences
-            if(higestConfidenceValue>=0.6000000) {
+            if(highestConfidenceValue>=0.6000000) {
                 if(indexOfFirstConfidence==0)
                 {
                     s = "This image appears to be a drawing...";
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 s = "This image appears to be pornographic in nature";
             }
-            else if (indexOfFirstConfidence==3 && indexOfSecondConfidence==4 && higestConfidenceValue>0.2000000 && secondHigestConfidenceValue>0.2000000)
+            else if (indexOfFirstConfidence==3 && indexOfSecondConfidence==4 && highestConfidenceValue>0.2000000 && secondHighestConfidenceValue>0.2000000)
             {
                 s = "This image appears to be sexy, but not necessarily pornographic";
             }
