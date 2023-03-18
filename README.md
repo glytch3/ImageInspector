@@ -1,4 +1,4 @@
-# -ImageInspector
+# ImageInspector
 
 NSFW_Detector_V3:
 
