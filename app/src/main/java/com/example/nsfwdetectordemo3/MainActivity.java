@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        Intent serviceIntent = new Intent(this, MyService.class);
+        startService(serviceIntent);
+
+
         camera = findViewById(R.id.button);
         gallery = findViewById(R.id.button2);
 
@@ -134,29 +139,35 @@ public class MainActivity extends AppCompatActivity {
             }
 
             //print all confidences
-            s2="Drawing "+originalconfidence[0]+ "\n" + "Hentai "+originalconfidence[1]+ "\n" + "Normal "+originalconfidence[2]+ "\n" + "Porn "+originalconfidence[3]+ "\n" + "Sexy "+originalconfidence[4];
+//            s2="Drawing "+originalconfidence[0]+ "\n" + "Hentai "+originalconfidence[1]+ "\n" + "Normal "+originalconfidence[2]+ "\n" + "Porn "+originalconfidence[3]+ "\n" + "Sexy "+originalconfidence[4];
 
             //print the highest confidences
             if(highestConfidenceValue>=0.6000000) {
                 if(indexOfFirstConfidence==0)
                 {
-                    s = "This image appears to be a drawing...";
+//                    s = "This image appears to be a drawing...";
+                    s = "Safe";
                 }
                 else if (indexOfFirstConfidence==1)
                 {
-                    s = "Baka !! Hentai !!";
+//                    s = "Baka !! Hentai !!";
+                    s = "Unsafe";
+
                 }
                 else if (indexOfFirstConfidence==2)
                 {
-                    s = "This image appears to be a normal image";
+//                    s = "This image appears to be a normal image";
+                    s = "Safe";
                 }
                 else if (indexOfFirstConfidence==3)
                 {
-                    s = "This image appears to be pornographic in nature";
+//                    s = "This image appears to be pornographic in nature";
+                    s = "Unsafe";
                 }
                 else if (indexOfFirstConfidence==4)
                 {
-                    s = "This image appears to be sexy, but not necessarily pornographic";
+//                    s = "This image appears to be sexy, but not necessarily pornographic";
+                    s = "Safe";
                 }
                 else
                 {
@@ -165,17 +176,21 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (indexOfFirstConfidence==4 && originalconfidence[4]-originalconfidence[3]<0.2)
             {
-                s = "This image appears to be pornographic in nature";
+//                s = "This image appears to be pornographic in nature";
+                s = "Unsafe";
             }
             else if (indexOfFirstConfidence==3 && indexOfSecondConfidence==4 && highestConfidenceValue>0.2000000 && secondHighestConfidenceValue>0.2000000)
             {
-                s = "This image appears to be sexy, but not necessarily pornographic";
+//                s = "This image appears to be sexy, but not necessarily pornographic";
+                s = "Probably Unsafe";
             }
             else
             {
-                s = Checking[indexOfFirstConfidence] + "->" + confidences[4] + "\n" + Checking[indexOfSecondConfidence] + "->" + confidences[3];
+//                s = Checking[indexOfFirstConfidence] + "->" + confidences[4] + "\n" + Checking[indexOfSecondConfidence] + "->" + confidences[3];
+                s="Probably Safe";
             }
 
+            s2=Math.round(highestConfidenceValue*100) + "%";
             result.setText(s);
             resultall.setText(s2);
 
